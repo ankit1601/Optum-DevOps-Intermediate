@@ -195,13 +195,99 @@ Assignment
 Diff between docker stop and docker kill?
 Diff between docker pause and docker unpause?
 
+=============================================================
+docker stats
 
 
+https://www.devopsschool.com/blog/the-docker-command-line-complete-referenece/
+
+PS					VS					Container
+===============================================
+Coz of PID1		Coz of PID1		Coz of PID1
+systemd			systemd			Anything
+
+run
+=============================
+pull + create + start + attach
+
+run -d
+=============================
+pull + create + start + attach
+
+attach = terminal attached to the PID 1 excutable of the container.
+
+How to use container?
+==============================
+Go inside
+- exec would execute an executable inside a container.
+- SHELL
+		docker exec -it 175d3e949c6f /bin/bash
+
+Access a container from outside?
+$ docker run -d httpd
+$ docker run -d -p 80:80 httpd
+$ docker run -d -p 81:80 httpd
+
+docker run -itd httpd
 
 
-
-
-
+ 105  clear
+  106  docker ps
+  107  docker exec 175d3e949c6f ls
+  108  docker exec 175d3e949c6f df
+  109  clear
+  110  docker exec 175d3e949c6f du
+  111  clear
+  112  docker exec 175d3e949c6f ps
+  113  sssss
+  114  clear
+  115  docker exec -it 175d3e949c6f /bin/bash
+  116  docker ps
+  117  docker inspect 175d3e949c6f
+  118  clear
+  119  http://172.17.0.3
+  120  curl http://172.17.0.3
+  121  ps -eaf
+  122  clear
+  123  docker ps
+  124  docker exec 175d3e949c6f ps -eaf
+  125  docker run -itd ubuntu
+  126  docker ps
+  127  docker exec 175d3e949c6f ps -eaf
+  128  docker exec de3df8a6b81f ps -eaf
+  129  clear
+  130  docker ps
+  131  docker attach de3df8a6b81f
+  132  docker ps
+  133  docker attach 175d3e949c6f
+  134  clear
+  135  docker ps
+  136  docker ps -a
+  137  docker start 175d3e949c6f 7c8afaedc1f9
+  138  clear
+  139  docker ps -a
+  140  docker ps
+  141  docker run httpd
+  142  clear
+  143  docker run -d httpd
+  144  docker ps
+  145  clear
+  146  docker run -itd httpd
+  147  docker run -itd ubuntu
+  148  docker ps
+  149  clear
+  150  docker ps
+  151  docker container stop $(docker container ls -aq)
+  152  docker rm -vf $(docker ps -a -q)
+  153  clear
+  154  ls
+  155  docker ps
+  156  docker run -d httpd
+  157  docker ps
+  158  docker run -d -p 80:80 httpd
+  159  docker run -d -p 81:80 httpd
+  160  clear
+  161  docker ps
 
 
 
