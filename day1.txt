@@ -1,0 +1,210 @@
+What is Docker?
+=================================
+https://www.devopsschool.com/blog/
+
+		AKA Docker Engine
+- Container mgmt tool
+- Release
+			Community 
+			Enterprise
+- Written in Go
+- by Soloman Hykes
+- 
+
+
+tool
+	save time
+				PS(1 day) + vms(5 mins) + container(1 sec)
+	improve the quality
+				Quality coding and Quality testing	
+	save cost
+				while running apps with container
+
+mgmt
+		create -> start -> stop -> removing
+
+Container --????
+is a app run time env where we have seprate one net + mnt + pid + user powered by Kernal(ns+_cgr+cap)
+is a lightweight app run time env.
+
+
+
+=================================
+How a APP run in Laptop| VMs?
+What are the RESOURCES needed to run a app?
+What are the components you need to run a app in OS?
+=================================================
+
+HARDWARE
+		OS
+		--------
+		Kernel + System util			ALLOWED by OS				CAN
+		----------------------------------------------------------------
+		Namespace
+		MNT NS		ROOT FILESYSTEM		1					N
+		USR NS		USER					N					N
+		PID NS		PID					1					N
+		NET NS		NETWORK				1					N
+
+		CGROUPS		CPU+RAM 	 
+		CAPABILITIES	USER PERM
+				
+		==========================================
+
+
+HUMAN ---> Docker Client -> Docker Server --> ContainerD ---> Kernel
+
+-------------------------
+other interactives
+=======================================
+ContainerD is off container interface for kuber
+================================================================
+Dcoker architecture
+======================================
+
+HUMAN ---> Docker Client ---API---> Docker Server --> ContainerD ---> Kernel
+		 ===========================================
+				Docker Engine
+
+
+
+How to install docker?
+==========================
+
+Lets Proof that what is container?
+
+
+
+Docker Component
+===========================================
+1. Docker engine
+
+2. Docker Image
+
+Vm Image ->
+Bootfs + Rootfs + UserFs + Appfs
+
+Container Image = 	Rootfs + UserFs + Appfs
+			    ubuntu	root	  + java + tomcat + app
+				centos	apache
+
+From One Image - You can get as many container.
+	
+===================
+
+3. Registry
+		repos
+			version of filesystem === docker image
+
+		hub.docker.com
+		google reg
+		artifactory
+		nexus
+
+4. container
+=========================================================
+
+
+==================================================
+Container lifecycle
+---------------------------------------------------------
+Create -> Start -> Stop -> start -> restart -> pause -> unpause -> kill -> remove
+
+
+
+ 30  docker ps
+   31  ls /
+   32  docker exec 93a842fd7119 ls /
+   33  clear
+   34  ls
+   35  ps
+   36  w
+   37  ps -eaf | grep container
+   38  clear
+   39  ls
+   40  w
+   41  docker ps
+   42  docker exec -it 93a842fd7119 /bin/bash
+   43  docker insect 93a842fd7119
+   44  docker inspect 93a842fd7119
+   45  ip a
+   46  clear
+   47  ps -eaf
+   48  clear
+   49  ls
+   50  docker ps
+   51  docker exec 93a842fd7119 ps -eaf
+   52  docker info
+   53  docker version
+   54  clear
+   55  which docker
+   56  which dockerd
+   57  which containerd
+   58  ps -eaf | grep dock
+   59  ps -eaf | grep contain
+   60  clear
+   61  ls
+   62  docker images
+   63  docker pull httpd
+   64  clear
+   65  docker images
+   66  docker ps
+   67  docker ps -a
+   68  docker stop 93a842fd7119
+   69  docker rm 93a842fd7119
+   70  clear
+   71  docker ps -a
+   72  docker create httpd
+   73  docker ps -a
+   74  docker create --name raj1 httpd
+   75  docker ps -a
+   76  clear
+   77  docker create --name raj2 httpd
+   78  docker ps -a
+   79  docker start 7c8afaedc1f9
+   80  docker ps -a
+   81  clear
+   82  docker start rajq1
+   83  docker start raj1
+   84  docker ps -a
+   85  docker stop raj1
+   86  docker ps -a
+   87  docker start raj1
+   88  docker ps -a
+   89  docker restart 7c8afaedc1f9
+   90  docker ps -a
+   91  clear
+   92  docker ps -a
+   93  docker pause 175d3e949c6f
+   94  docker ps -a
+   95  docker unpause 175d3e949c6f
+   96  cler
+   97  clear
+   98  docker ps -a
+   99  docker kill 7c8afaedc1f9
+  100  docker ps -a
+  101  docker rm 4b0e9a3bb569
+  102  docker ps -a
+  103  docker rm 175d3e949c6f
+  104  history
+
+
+
+Assignment 
+-------------------
+Diff between docker stop and docker kill?
+Diff between docker pause and docker unpause?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
