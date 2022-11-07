@@ -288,9 +288,52 @@ docker run -itd httpd
   159  docker run -d -p 81:80 httpd
   160  clear
   161  docker ps
+====================================================
+https://www.devopsschool.com/blog/the-docker-command-line-complete-referenece/
+
+ 166  docker ps
+  167  docker exec 56ef2b5d077f ls /tmp
+  168  ls
+  169  docker cp anaconda-ks.cfg 56ef2b5d077f:/tmp
+  170  docker exec 56ef2b5d077f ls /tmp
+  171  ls
+  172  rm -rf anaconda-ks.cfg
+  173  clear
+  174  ls
+  175  docker cp 56ef2b5d077f:/tmp/anaconda-ks.cfg .
+  176  ls
+  177  docker ps
+  178  docker diff 56ef2b5d077f
+  179  clear
+  180  docker port
+  181* docker ps
+  182  docker port 56ef2b5d077f
+  183  docker port 7ad0e799c881
+  184  clear
+  185  docker ps
+  186  docker rename 7ad0e799c881 raju
+  187  docker ps
+  188  clear
+  189  docker ps
+  190  docker inspect 56ef2b5d077f
+  191  clear
+  192  docker logs 56ef2b5d077f
+  193  curl http://172.17.0.2
+  194  clear
+  195  docker logs 56ef2b5d077f
+  196  docker stats
+  197  clear
+  198  docker ps
+  199  ps -eaf | grep containerd
+  200  docker top 56ef2b5d077f
+  201  clear
+  202  docker events
 
 
 
-
+Assignment - www.debug.school
+---------------------
+update	Update configuration of one or more containers
+wait	Block until one or more containers stop, then print their exit codes
 
 
