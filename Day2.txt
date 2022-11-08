@@ -350,6 +350,126 @@ https://www.devopsschool.com/blog/example-and-sample-programs-of-dockerfile/
   216  clear
 
 
+docker run lswala
+
+docker run -it lswala /bin/bash
+
+docker run -it --entrypoint /bin/bash lswala 
+===========================================================
+Docker volume
+==============================================
+Containers are EMPHERAL
+
+
+How to make container DATA persistemnt???
+================================================
+-> volume		/var/lib/docker/volumes
+-> mount		ANY PLACE HOST
+-> tempfs		memory
+
+https://www.devopsschool.com/blog/understand-docker-volume-from-beginner-to-deep-dive-level/
+
+
+
+ 219  ls
+  220  cd /var/lib/docker/
+  221  ls
+  222  cd volumes
+  223  clear
+  224  ls
+  225  pwd
+  226  clear
+  227  docker volume
+  228  docker volume ls
+  229  ls
+  230  docker ps -a
+  231  clear
+  232  ls
+  233  docker container stop $(docker container ls -aq)
+  234  docker rm -vf $(docker ps -a -q)
+  235  clear
+  236  ls
+  237  docker ps -a
+  238  docker volume ls
+  239  ls
+  240  docker volume
+  241  docker volume create dev
+  242  docker volume create
+  243  clear
+  244  ls
+  245  docker volume
+  246  docker volume prune
+  247  clear
+  248  docker volume ls
+  249  docker volume
+  250  docker volume create dev
+  251  docker volume inspect dev
+  252  clear
+  253  docker volume
+  254  clear
+  255  docker volume ls
+  256  docker run -itd -v dev:/opt/ramukaka ubuntu
+  257  docker ps
+  258  docker exec cf1f07d130bb ls /opt
+  259  docker exec cf1f07d130bb df -kh
+  260  docker exec cf1f07d130bb touch /opt/ramukaka/raju.ban.gaya.gentleman.txt
+  261  docker exec cf1f07d130bb ls /opt/ramukaka
+  262  docker stop cf1f07d130bb
+  263  docker rm cf1f07d130bb
+  264  clear
+  265  ls
+  266  cd dev/
+  267  ls
+  268  cd _data/
+  269  ls
+  270  docker run -itd -v dev:/opt/ramu1 ubuntu
+  271  docker exec cf1f07d130bb ls /opt/ramu1
+  272  docker exec 59445a6ab4d46081269e7cc7d0c879771a71199817e17ded1cd1d0c0923ec9f7 ls /opt/ramu1
+  273  ls
+  274  touch rrr gg hh hh
+  275  ls
+  276  docker exec 59445a6ab4d46081269e7cc7d0c879771a71199817e17ded1cd1d0c0923ec9f7 ls /opt/ramu1
+  277  clear
+  278  ls
+  279  cd /opt/
+  280  ls
+  281  mkdir raj
+  282  cd raj/
+  283  ls
+  284  touch dfddddd
+  285  ;ls
+  286  ls
+  287  clear
+  288  ls
+  289  pwd
+  290  docker run -itd -v /etc/raj:/tmp/ok ubuntu
+  291  docker exec 03f43bd5e13173738432c3cf1f3b8a18b19d88832edf57dd53740465425d3313 ls /tmp
+  292  ls
+  293  docker exec 03f43bd5e13173738432c3cf1f3b8a18b19d88832edf57dd53740465425d3313 ls /tmp/ok
+  294  ls
+  295  pwd
+  296  docker run -itd -v /opt/raj:/tmp/ok ubuntu
+  297  docker ps
+  298  docker exec dd6c12e04f01 ls /tmp/ok
+  299  ls
+  300  ls /etc/raj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
