@@ -159,10 +159,55 @@ Automated way === Dockerfile
    89  docker exec mgr java
    90  clear
 
+============================================================
+============================================================
+How to share an images?
+-------------------------------------
+1 using Tar ball
+
+ 101  clear
+  102  ls
+  103  docker images
+  104  docker save -o ub-java-git-ap.tar ub-java-git-ap
+  105  ls
+  106  docker docker container stop $(docker container ls -aq)
+  107  docker container stop $(docker container ls -aq)
+  108  docker rm -vf $(docker ps -a -q)
+  109  docker rmi -f $(docker images -a -q)
+  110  clear
+  111  ls
+  112  docker images
+  113  ls
+  114  docker load -i ub-java-git-ap.tar
+  115  clear
+  116  ls
+  117  docker images
 
 
 
+2 using registry hub.docker.com
 
+
+ 116  ls
+  117  docker images
+  118  history
+  119  clear
+  120  docker images
+  121  clear
+  122  docker login
+  123  docker images
+  124  docker run -it ubuntu
+  125  clear
+  126  docker ps -a
+  127  docker commit -m"touch" -a"rajehs" 9ac012320cdb touch
+  128  docker images
+  129  docker push touch
+  130  docker tag touch devopsschools/oct22
+  131  clear
+  132  docker images
+  133  docker push devopsschools/oct22
+  134  history
+  135  docker images
 
 
 
