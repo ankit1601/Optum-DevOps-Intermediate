@@ -209,8 +209,145 @@ How to share an images?
   134  history
   135  docker images
 
+=========================================
+Automated way === Dockerfile
+===============================================
+			file
+			Named - with dockerfile
+		
+			Each line == one layer
+			Layer is created from a container from the last layer
+
+FROM	ubuntu
+MAINTAINER rajesh kumar devops@rajeshkumar.xyz
+RUN apt-get update
+RUN apt-get install git -y
+COPY index.html /opt
+ENV JAVA_HOME /opt/java
+
+FROM	ubuntu
+MAINTAINER rajesh kumar devops@rajeshkumar.xyz
+RUN touch rajesh1
+RUN touch rajesh2
+RUN touch rajesh3
+RUN useradd raju
+USER raju
+
+-----------------------------------------------------------------
+How to set PID1?
+
+CMD			ENTRYPOINT
+----------------------------------
 
 
+CMD can be replaced
+
+ENTRYPOINT CAN NOT BE REPLACED
+
+CMD & ENTRYPOINT BOTH === PID 1 would be set from ENTRYPOINT and CMD would be param.
+
+ENTRYPOINT "echo"
+CMD "raju"
+
+echo raju
+===================
+
+
+
+
+
+FROM	ubuntu
+MAINTAINER rajesh kumar devops@rajeshkumar.xyz
+CMD ["ls"]
+
+EXAMPLE PROGRAM
+--------------------
+https://www.devopsschool.com/blog/example-and-sample-programs-of-dockerfile/
+
+-----------------------------------------------------------------------
+???
+
+2 CMD
+2 ENTRYPOINT
+
+
+ 140  mkdir doc
+  141  cd doc/
+  142  cler
+  143  clear
+  144  vi dockerfile
+  145  ls
+  146  touch index.html
+  147  clear
+  148  ls
+  149  docker build -t raj1 .
+  150  clear
+  151  docker images
+  152  docker run -itd raj1
+  153  docker ps
+  154  docker exec 4379f5d7a34f ls /opt/
+  155  docker exec 4379f5d7a34f env
+  156  clear
+  157  vi dockerfile
+  158  docker run -itd raj2
+  159  docker build -t raj2 .
+  160  docker images
+  161  clear
+  162  docker images
+  163  docker run raj2 git
+  164  cleaar
+  165  clear
+  166  ls
+  167  vi doc1
+  168  docker build -t raj2 -f doc1 .
+  169  clear
+  170  docker images
+  171  docker history raj2
+  172  clear
+  173  docker ps
+  174  docker exec -it 4379f5d7a34f /bin/bash
+  175  clear
+  176  ls
+  177  vi doc2
+  178  docker build -t raj2 -f doc2 .
+  179  clear
+  180  docker images
+  181  docker run -itd raj2
+  182  docker ps
+  183  docker exec -it d548d8925d83 /bin/bash
+  184  clear
+  185  docker ps
+  186  docker run ubuntu ls
+  187  docker ps -a
+  188  clear
+  189  docker run -d jenkins
+  190  docker run -d jenkins/jenkins
+  191  clear
+  192  docker ps
+  193  docker run -d jenkins/jenkins ls
+  194  docker ps
+  195  docker ps -a
+  196  clear
+  197  ls
+  198  vi doc3
+  199  docker build -t doc2 -f doc3 .
+  200  docker images
+  201  clear
+  202  docker run doc3
+  203  docker images
+  204  clear
+  205  docker build -t doc3 -f doc3 .
+  206  docker run doc3
+  207  clear
+  208  vi doc3
+  209  docker build -t doc3 -f doc3 .
+  210  clear
+  211  docker run doc3
+  212  docker ps -a
+  213  clear
+  214  docker run doc3 df
+  215  docker ps -a
+  216  clear
 
 
 
