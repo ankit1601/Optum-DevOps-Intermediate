@@ -1,0 +1,174 @@
+docker kill
+docker stop
+
+docker ps
+docker stats
+
+docker wait
+docker exec
+
+docker diff
+docker top
+
+docker pull
+docker images
+
+docker cp
+docker port
+
+docker pause
+docker unpause
+
+docker run
+docker inspect
+
+docker run -p
+docker rm
+
+docker logs
+docker events
+
+docker add
+================================================================================
+================================================================================
+How to create an Image?
+=============================================
+
+What is an Docker Image?
+------------------------
+	Contains MULTIPLE FILESYSTEM(AKA Layer)
+		
+	WHy Layer?
+
+
+	APP3
+	APP2
+	APP1
+	USERFS
+	ROOTFS
+	 +  +  +  +  + 
+
+
+VM Image == OS Image === 
+---------------------------------------
+BOOTFS + ROOTFS + USERFS + APP1 + APP2 + APP3
+
+Docker Image
+====================================
+ROOTFS + USERFS + APP1 + APP2 + APP3
+
+
+
+  13  ls
+   14  cd /var/lib/docker/overlay2/
+   15  clear
+   16  ls
+   17  docker info
+   18  clear
+   19  docker history httpd
+   20  clear
+   21  docker history httpd
+   22  pwd
+   23  cd ..
+   24  clear
+   25  ls
+   26  cd overlay2/
+   27  clear
+   28  ls
+   29  clear
+   30  ls
+   31  docker create httpd
+   32  ls
+   33  du -sh c72b4c158d8d1700c9daf69622bd1a049f56a6edbc06333a70a4dfd807d54116
+   34  du -sh c72b4c158d8d1700c9daf69622bd1a049f56a6edbc06333a70a4dfd807d54116-init
+   35  clear
+   36  df -kh
+   37  docker ps
+   38  docker ps -a
+   39  docker start a2d0552b0f9f
+   40  ls
+   41  du -sh c72b4c158d8d1700c9daf69622bd1a049f56a6edbc06333a70a4dfd807d54116
+   42  du -sh c72b4c158d8d1700c9daf69622bd1a049f56a6edbc06333a70a4dfd807d54116-init
+   43  clear
+   44  df -kh
+   45  clear
+   46  docker run -d httpd
+   47  df -kh
+   48  docker run -d httpd
+   49  df -kh
+   50  clear
+   51  docker ps
+   52  docker exec e9b15260d760 touch /tmp/ramukaka.txt
+   53  find . -name ramukaka.txt
+   54  docker stop e9b15260d760
+   55  find . -name ramukaka.txt
+   56  docker start e9b15260d760
+   57  find . -name ramukaka.txt
+
+
+
+============================================================
+
+
+How to create an Image?
+===================================
+Manual === Exisitng container
+=========================================================
+Base - ubuntu
+			+ JAVA + GIT + APACHE
+			===========================
+			ub-java-git-ap
+
+
+
+Automated way === Dockerfile
+
+
+
+ 58  history
+   59  cleare
+   60  clear
+   61  lear
+   62  clear
+   63  docker run -itd --name raj1 ubuntu
+   64  clear
+   65  docker ps
+   66  docker exec -it raj1 /bin/bash
+   67  docker ps
+   68  docker exec raj1 git
+   69  clear
+   70  docker exec raj1 java
+   71  clear
+   72  docker exec raj1 which apache2
+   73  clear
+   74  ls
+   75  docker ps
+   76  docker commit -m"ub-java-git-ap" -a Rajesh Kumar df105b206994 ub-java-git-ap
+   77  clear
+   78  docker commit -m"ub-java-git-ap" -a "Rajesh Kumar" df105b206994 ub-java-git-ap
+   79  docker images
+   80  docker history ubuntu
+   81  docker history ub-java-git-ap
+   82  docker run -itd --name mgr ub-java-git-ap
+   83  docker ps
+   84  clear
+   85  ls
+   86  clear
+   87  docker ps
+   88  docker exec mgr git
+   89  docker exec mgr java
+   90  clear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
