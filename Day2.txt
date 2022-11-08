@@ -453,8 +453,51 @@ https://www.devopsschool.com/blog/understand-docker-volume-from-beginner-to-deep
   298  docker exec dd6c12e04f01 ls /tmp/ok
   299  ls
   300  ls /etc/raj
+==========================================================
+networking
+==========================================================
 
-
+301  history
+  302  clear
+  303  docker network ls
+  304  docker ps
+  305  docker inspect dd6c12e04f01
+  306  clear
+  307  docker network ls
+  308  docker network inspect 8dcc025a66ce
+  309  clear
+  310  ls
+  311  docker network ls
+  312  docker network create dev
+  313  docker network ls
+  314  docker ps
+  315  docker stop dd6c12e04f01 03f43bd5e131 59445a6ab4d4
+  316  clear
+  317  docker ps
+  318  docker network ls
+  319  docker run -itd --net=dev ubuntu
+  320  docker run -itd ubuntu
+  321  docker ps
+  322  docker inspect 715de0698d4d
+  323  clear
+  324  docker ps
+  325  docker inspect b6cb15b31408
+  326  clear
+  327  docker ps
+  328  docker network ls
+  329  docker network
+  330  docker network connect 715de0698d4d bridge
+  331  docker network connect bridge 715de0698d4d
+  332  clear
+  333  ls
+  334  docker inspect 715de0698d4d
+  335  clear
+  336  docker network ls
+  337  docker network
+  338  ls
+  339  ip a
+  340  clear
+  341  history
 
 
 
