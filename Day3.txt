@@ -259,12 +259,129 @@ spec:
   107  kubectl delete -f pod.yaml -n=rajesh
   108  kubectl get pods -n=rajesh
 
+=======================================================================
+
+ReplicationController			SG
+Deployment					SG
+SVC							LB
+-------------------------------------------------
+ReplicationController
+
+Replication -- 1 TO N PODS
+Controller -- to manage a desire
+
+
+
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: rajesh-rc
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: scmgalaxy/nginx-devopsschoolv1
 
 
 
 
 
+  125  vi rc.yaml
+  126  kubectl create -f rc.yaml -n=rajesh
+  127  kubectl get rc -n=rajesh
+  128  kubectl get pods -n=rajesh
+  129  kubectl edit rc rajesh-rc -n=rajesh
+  130  kubectl get pods -n=rajesh
+  131  clear
+  132  kubectl get pods -n=rajesh
+  133  kubectl get nodes
+  134  clear
+  135  kubectl get nodes
+  136  kubectl get pods -n=rajesh
+  137  kubectl
+  138  clear
+  139  kubectl scale -h
+  140  clear
+  141  kubectl get rc -n=rajesh
+  142  clear
+  143  kubectl scale --replicas=2 rc/rajesh-rc-n=rajesh
+  144  kubectl scale --replicas=2 rc/rajesh-rc -n=rajesh
+  145  kubectl get rc -n=rajesh
+  146  kubectl scale --replicas=10 rc/rajesh-rc -n=rajesh
+  147  kubectl get rc -n=rajesh
+  148  kubectl get pods -n=rajesh
+  149  clear
+  150  kubectl get pods -n=rajesh
+  151  kubectl scale --replicas=2 rc/rajesh-rc -n=rajesh
+  152  clear
+  153  kubectl get pods -n=rajesh
+  154  kubectl delete pod rajesh-rc-mz55d -n=rajesh
+  155  kubectl get pods -n=rajesh
+  156  kubectl delete rc rajesh-rc -n=rajesh
+  157  kubectl get pods -n=rajesh
+
+docker cp		= kubectl cp
+docker exec	== kubectl exec
+docker attach  == kubectl attach
+docker logs  === kubectl logs
+
+port-forward  Forward one or more local ports to a pod
+
+Troubleshooting and Debugging Commands:
+  describe      Show details of a specific resource or group of resources
+  logs          Print the logs for a container in a pod
+  attach        Attach to a running container
+  exec          Execute a command in a container
+  port-forward  Forward one or more local ports to a pod
+  proxy         Run a proxy to the Kubernetes API server
+  cp            Copy files and directories to and from containers
+  auth          Inspect authorization
+  debug         Create debugging sessions for troubleshooting workloads and nodes
 
 
+
+  163  kubectl get pods -n=rajesh
+  164  ls
+  165  kubectl apply -f pod.yaml -n=rajesh
+  166  kubectl get pods -n=rajesh
+  167  ls
+  168  kubectl cp rc.yaml rajesh:/tmp
+  169  kubectl exec rajesh ls /tmp
+  170  kubectl get pods
+  171  kubectl cp rc.yaml rajesh:/tmp -n=rajesh
+  172  kubectl exec rajesh ls /tmp -n=rajesh
+  173  kubectl delete pod rajesh
+  174  clear
+  175  kubectl get pods -n=rajsh
+  176  kubectl get pods
+  177*
+  178  kubectl get pods  -o wide
+  179  kubectl get pods  -o wide -n=rajesh
+  180  curl http://192.168.1.36
+  181  clear
+  182  kubectl get pods  -o wide -n=rajesh
+  183  kubectl attach rajesh -n=rajesh
+  184  kubectl logs rajesh -n=rajesh
+  185  clear
+  186  kubectl
+  187* clear
+  188  kubectl port-forward -h
+  189  clear
+  190  kubectl get pods -n=rajesh
+  191  kubectl port-forward --address 0.0.0.0 pod/rajesh 8888:80 -n=rajesh
+  192  history
+
+
+
+kubectl port-forward --address 0.0.0.0 pod/rajesh 8888:80 -n=rajesh
+
+
+human -> masternode ----worker (pod
 
 
