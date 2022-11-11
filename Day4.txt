@@ -1,0 +1,53 @@
+StatefulSet and DaemonSet
+==========================
+
+DaemonSet
+---------------
+ONE POD == EACH WORKER
+
+Deployment --- Stateless APP
+StatefulSet --- StateFUll APP
+--------------------------------------------
+-- Name would be in order -- pod-1, pod-2, pod-3
+-- creating a pod in order -- pod-1 --> pod-2 --> pod-3
+-- -- delete a pod in order -- pod-1 --> pod-2 --> pod-3
+
+	pod -1 -- vol-1
+	pod -2 -- vol-2
+	pod -3 -- vol-3
+--------------------------
+
+	mysql-1 == vol-1 --- 1 week
+----------------------------
+	mysql-1 deleted
+	mysql-1 re-created
+					-- -vol4
+
+
+MYSQL
+-------------
+MYSQL Engine + Data dir
+------------  ------------
+	app		  data
+
+
+15-20 mins
+----------------------------
+
+
+Write a self 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
