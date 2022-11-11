@@ -38,6 +38,127 @@ MYSQL Engine + Data dir
 Write a self 
 
 
+13.233.143.228
+================================
+
+What is SVC?
+---------------------
+
+
+LB 
+	network - service
+	app - ingress
+
+
+kubectl expose deploy my-dep --port=80 --target-port=80
+
+kubectl expose deploy my-dep --port=80 --target-port=80 --name nodeport --type=NodePort
+
+
+http://3.110.172.25:32178/
+
+ 1213  kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv1 --replicas=3
+ 1214  kubectl get deploy
+ 1215  kubectl get svc
+ 1216  kubectl get svc --all-namespaces
+ 1217  clear
+ 1218  kubectl expose -h
+ 1219  clear
+ 1220  kubectl get deploy
+ 1221  kubectl expose deploy my-dep --port=80 --target-port=80
+ 1222  kubectl get svc
+ 1223  kubectl describe svcn my-dep
+ 1224  kubectl describe svc my-dep
+ 1225  clear
+ 1226  ls
+================================================
+PV and PVC
+=============================================
+
+COMPUTE - POD - RC - RS - Deploy
+LB - service
+Storage
+=================================================================
+PV & PVC
+=====================================
+PHYSICAL STORAGE 
+----------------
+		BLOCK
+		FILE == NFS
+		OBJECT
+=======================================
+Admin of K8
+-----------------------
+		He is adding pool of volume(S) using storage interface of k8 in clustor
+		== pv
+
+USER of k8
+======================
+		Claim pv == pvc
+		Attach PVC to POD
+		Mount pvc to container
+===================
+ROLE BASED ACCESS CONTROL
+============================================================
+How to login k8? == Authentication
+
+What you are allowed to do in k8??==  Authorization
+========================================================
+Storage
+---------------------------------
+Configmap - would help u to strore content in clustor
+secret == configmap + encoded
+
+etcd
+-------------
+	key:value
+
+
+=========================================================
+Compute - pod - rc - rs - deploy
+storage - pv - pvc - storageclass - configmap - secret
+security - sa - role - rolebinding - clustorrole - clustorolebinding
+mgmt - job, cronjob
+networking - service
+
+
+kubectl create service clusterip my-cs --tcp=5678:80
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
