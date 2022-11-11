@@ -1,0 +1,206 @@
+What is Terraform?
+-----------------------------
+		Coding for Infra == IAAC
+		written in Go
+		Release 
+				community - cmd  - Free
+				enteprise - GUI - Paid
+				cloud -- GUI Paid
+		1.3.4 
+		From hashicorp
+		
+
+Infra
+-----------------------------
+Azure			-- API --> ARM
+AWS			-- API --> CloudFormation
+GC				-- API -->  X
+Github		-- API --> X
+Kubernetes	-- API --> X
+vmware		-- API --> X
+============================================
+Step 1 - Install terraform
+
+$ wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+$ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+$ sudo apt update && sudo apt install terraform
+
+Step 2 - Install Providers
+
+- aws
+- github
+
+providers.tf
+-----------------
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.39.0"
+    }
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "3.31.0"
+    }
+  }
+}
+
+provider "aws" {
+  region     = "ap-south-1"
+  access_key = ""
+  secret_key = ""
+}
+
+provider "github" {
+  # Configuration options
+}
+
+
+provider "azurerm" {
+  # Configuration options
+}
+
+$ terraform init
+
+
+
+
+Step 3 - Write a Code
+
+Providers - AWS
+		Resource1 - vm		aws_instance
+				Argument1
+				Argument2
+				Argument3
+		Resource2 - pvc
+				Argument1
+				Argument2
+				Argument3
+Providers - Azure
+		Resource3 - vol
+				Argument1
+				Argument2
+				Argument3
+		Resource4 - net
+				Argument1
+				Argument2
+				Argument3
+
+Providers - github
+		Resource5 - lb
+				Argument1
+				Argument2
+				Argument3
+		Resource6 - sc
+		
+
+resource "aws_instance" "web" {
+  ami           = "ami-062df10d14676e201"
+  instance_type = "t3.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+resource "aws_instance" "web1" {
+  ami           = "ami-062df10d14676e201"
+  instance_type = "t3.micro"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+
+
+
+Step 4 - APPLY or Destroy
+
+
+
+Step 5 - Validate a response
+
+
+
+========================================
+
+
+
+ 1585  which terraform
+ 1586  terraform version
+ 1587  terraform -h
+ 1588  clear
+ 1589  ls
+ 1590  pwd
+ 1591  mkdir prj1
+ 1592  cd prj1/
+ 1593  clear
+ 1594  ls
+ 1595  pwd
+ 1596  ls
+ 1597  vi providers.tf
+ 1598  ls
+ 1599  pwd
+ 1600  vi providers.tf
+ 1601  terraform init
+ 1602  clear
+ 1603  l s-la
+ 1604  clear
+ 1605  ls -la
+ 1606  cd .terraform
+ 1607  clear
+ 1608  tree
+ 1609  apt  install tree
+ 1610  clear
+ 1611  tree
+ 1612  cd ..
+ 1613  clear
+ 1614  ls
+ 1615  vi providers.tf
+ 1616  apt  install tree
+ 1617  terraform init
+ 1618  clear
+ 1619  terraform providers
+ 1620  ls -la
+ 1621  cd .terraform
+ 1622  tree
+ 1623  ls -la
+ 1624  cd ..
+ 1625  ls
+ 1626  clear
+ 1627  ls
+ 1628  vi aws.tf
+ 1629  clear
+ 1630  ls
+ 1631  terraform plan
+ 1632  vi providers.tf
+ 1633  clear
+ 1634  terraform plan
+ 1635  clear
+ 1636  terraform apply
+ 1637  clear
+ 1638  ls
+ 1639  vi aws.tf
+ 1640  terraform apply
+ 1641  terraform destory
+ 1642  terraform destroy
+ 1643  ls
+ 1644  terraform show
+ 1645  terraform apply
+ 1646  terraform show
+ 1647  ls
+ 1648  more terraform.tfstate
+ 1649  clear
+
+
+
+
+
+
+
+
+
+
+
+
